@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.gr.chessarrows">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Permissions -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -22,12 +21,11 @@
     <application
         android:name=".ChessArrowsApp"
         android:allowBackup="true"
-        android:extractNativeLibs="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.ChessArrows"
-        tools:replace="android:allowBackup,android:extractNativeLibs">
+        tools:replace="android:allowBackup">
 
         <!-- Main Activity -->
         <activity
