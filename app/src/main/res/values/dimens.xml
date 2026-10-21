@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="arrow_default_width_dp">8</dimen>
+    <dimen name="arrow_min_width_dp">1</dimen>
+    <dimen name="arrow_max_width_dp">30</dimen>
+    <dimen name="arrow_default_alpha_percent">80</dimen>
+    <dimen name="button_size_dp">56</dimen>
+    <dimen name="button_elevation_dp">8</dimen>
+    <dimen name="preview_height_dp">200</dimen>
+</resources>

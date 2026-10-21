@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Chess Arrows</string>
+    <string name="overlay_permission_needed">Chess Arrows needs the "Display over other apps" permission to draw arrows over your chess app.</string>
+    <string name="how_it_works">1. Enable the switch.\n2. Open your chess app.\n3. Tap the pencil and drag to draw an arrow.\n4. Draw an L for a knight move.\n5. Tap ↺ to undo, ✓ to finish.</string>
+    <string name="overlay_permission_required">Overlay permission required: enable the switch to configure it.</string>
+    <string name="advanced_toggle">Advanced: Start/stop arrow overlay</string>
+    <string name="color">Color</string>
+    <string name="how_it_works_title">How it works</string>
+    <string name="how_to_setup_board">How to set up the board</string>
+    <string name="how_to_use">How to use</string>
+    <string name="allow_drawing_over_apps">Allow drawing over other apps</string>
+    <string name="onboarding_page_1">Chess Arrows places a small floating pencil over your chess app. Draw moves, threats and ideas without leaving the game.</string>
+    <string name="onboarding_page_2">Tap the pencil to start drawing. Drag to create arrows. Release to place.</string>
+    <string name="onboarding_page_3">Use the undo button to remove the last arrow. Use the clear button to remove all arrows.</string>
+    <string name="onboarding_page_4">Adjust color, width and opacity in the settings. Changes apply immediately.</string>
+    <string name="onboarding_page_5">The overlay works over any chess app. No accessibility service needed.</string>
+    <string name="onboarding_page_6">Tap the switch to enable the overlay. Grant permission when prompted.</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="get_started">Get Started</string>
+    <string name="done">Done</string>
+    <string name="skip">Skip</string>
+    <string name="service_running">Service Running</string>
+    <string name="service_stopped">Service Stopped</string>
+    <string name="stop_service">Stop Service</string>
+    <string name="clear_arrows">Clear Arrows</string>
+    <string name="notification_channel_name">Arrow Overlay Service</string>
+    <string name="notification_channel_description">Manages the floating arrow overlay</string>
+</resources>

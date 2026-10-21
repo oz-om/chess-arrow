@@ -1,0 +1,43 @@
+# Exclude reference-app folder (original APKs)
+reference-app/
+
+# Gradle/build artifacts
+.gradle/
+build/
+app/build/
+*.apk
+*.aar
+
+# Gradle wrapper (optional - commit it for CI)
+# gradlew
+# gradlew.bat
+# gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Local configuration
+local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Build outputs
+*.ap_
+*.dex
+*.class

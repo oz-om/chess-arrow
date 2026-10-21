@@ -1,0 +1,8 @@
+<resources>
+    <color name="overlay_green">#DD2E7D32</color>
+    <color name="overlay_green_light">#802E7D32</color>
+    <color name="arrow_default_color">#FF2E7D32</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+</resources>
