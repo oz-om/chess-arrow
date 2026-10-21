@@ -33,6 +33,7 @@ jobs:
           api-level: 34
           ndk-version: r26c
           build-tools-version: 34.0.0
+          cmdline-tools-version: 11.0
           emulator: false
 
       - name: Cache Gradle packages
@@ -44,6 +45,11 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
+      - name: Install Gradle (for wrapper generation)
+        uses: gradle/gradle-build-action@v3
+        with:
+          gradle-version: 8.5
 
       - name: Generate Gradle Wrapper (if missing)
         run: |
@@ -98,7 +104,13 @@ jobs:
         with:
           api-level: 34
           build-tools-version: 34.0.0
+          cmdline-tools-version: 11.0
           emulator: false
+
+      - name: Install Gradle (for wrapper generation)
+        uses: gradle/gradle-build-action@v3
+        with:
+          gradle-version: 8.5
 
       - name: Generate Gradle Wrapper (if missing)
         run: |
