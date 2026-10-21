@@ -43,18 +43,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Install Gradle (for wrapper generation)
-        uses: gradle/gradle-build-action@v3
-        with:
-          gradle-version: 8.5
-
-      - name: Generate Gradle Wrapper (if missing)
-        run: |
-          if [ ! -f ./gradlew ]; then
-            echo "Gradle wrapper not found, generating..."
-            gradle wrapper --gradle-version 8.5 --distribution-type all
-          fi
-
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
@@ -102,17 +90,15 @@ jobs:
           cmdline-tools-version: 12.0
           packages: platforms;android-34 build-tools;34.0.0 ndk;26.1.10909125
 
-      - name: Install Gradle (for wrapper generation)
-        uses: gradle/gradle-build-action@v3
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
         with:
-          gradle-version: 8.5
-
-      - name: Generate Gradle Wrapper (if missing)
-        run: |
-          if [ ! -f ./gradlew ]; then
-            echo "Gradle wrapper not found, generating..."
-            gradle wrapper --gradle-version 8.5 --distribution-type all
-          fi
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
