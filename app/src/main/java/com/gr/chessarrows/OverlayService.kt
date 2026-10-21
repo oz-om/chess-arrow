@@ -12,9 +12,11 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.PixelFormat
 import android.graphics.Rect
+import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
+import android.os.Looper
 import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
@@ -80,9 +82,9 @@ class OverlayService : Service() {
         }
         val permission = "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(actionReceiver, filter, permission, Handler.mainLooper, ContextCompat.RECEIVER_NOT_EXPORTED)
+            registerReceiver(actionReceiver, filter, permission, Looper.getMainLooper(), ContextCompat.RECEIVER_NOT_EXPORTED)
         } else {
-            registerReceiver(actionReceiver, filter, permission, Handler.mainLooper)
+            registerReceiver(actionReceiver, filter, permission, Looper.getMainLooper())
         }
 
         // Create notification channel
@@ -296,21 +298,18 @@ class OverlayService : Service() {
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     v.parent?.requestDisallowInterceptTouchEvent(true)
-                    // Use layout params directly for position
                     true
                 }
                 MotionEvent.ACTION_MOVE -> {
                     val newX = (params.x + event.rawX - v.width / 2).coerceIn(0, screenWidth - v.width)
                     val newY = (params.y + event.rawY - v.height / 2).coerceIn(0, screenHeight - v.height)
-                    params.x = newX
-                    params.y = newY
+                    params.x = newX.toInt()
+                    params.y = newY.toInt()
                     windowManager.updateViewLayout(v, params)
                     true
                 }
                 MotionEvent.ACTION_UP -> {
-                    // Save position
                     saveButtonPositions()
-                    // Snap back to nearest edge
                     snapButtonToEdge(v, params)
                     true
                 }

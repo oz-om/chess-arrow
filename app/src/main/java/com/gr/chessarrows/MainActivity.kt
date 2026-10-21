@@ -43,12 +43,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adContainer: FrameLayout
 
     private val colorSwatches = intArrayOf(
-        0xFF2E7D32, // Green
-        0xFF1565C0, // Blue
-        0xFFC62828, // Red
-        0xFFEF6C00, // Orange
-        0xFF6A1B9A, // Purple
-        0xFF00695C, // Teal
+        0xFF2E7D32.toInt(), // Green
+        0xFF1565C0.toInt(), // Blue
+        0xFFC62828.toInt(), // Red
+        0xFFEF6C00.toInt(), // Orange
+        0xFF6A1B9A.toInt(), // Purple
+        0xFF00695C.toInt(), // Teal
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                 background = GradientDrawable().apply {
                     shape = GradientDrawable.OVAL
                     setColor(color)
-                    setStroke(4, if (color == currentColor) 0xFFFFFFFF else 0x00000000)
+                    setStroke(4, if (color == currentColor) 0xFFFFFFFF.toInt() else 0x00000000.toInt())
                 }
                 setOnClickListener {
                     app.setArrowColor(color)
@@ -164,7 +164,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupModeToggle() {
-        modeToggle.checkWhenEmpty = true
+        modeToggle.singleSelection = true
+        modeToggle.selectionRequired = true
         modeToggle.addOnButtonCheckedListener { _, checkedId, isChecked ->
             if (isChecked) {
                 // Mode changed - could store mode preference here

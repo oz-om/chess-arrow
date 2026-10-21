@@ -26,7 +26,7 @@ class ArrowPreviewView @JvmOverloads constructor(
         style = Paint.Style.FILL
     }
 
-    private var arrowColor: Int = 0xFF2E7D32
+    private var arrowColor: Int = 0xFF2E7D32.toInt()
     private var arrowWidthDp: Int = 8
     private var arrowAlphaPercent: Int = 80
 
