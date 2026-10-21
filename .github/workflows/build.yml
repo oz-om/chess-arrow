@@ -30,11 +30,8 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
         with:
-          api-level: 34
-          ndk-version: r26c
-          build-tools-version: 34.0.0
-          cmdline-tools-version: 11.0
-          emulator: false
+          cmdline-tools-version: 12.0
+          packages: platforms;android-34 build-tools;34.0.0 ndk;26.1.10909125
 
       - name: Cache Gradle packages
         uses: actions/cache@v4
@@ -102,10 +99,8 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
         with:
-          api-level: 34
-          build-tools-version: 34.0.0
-          cmdline-tools-version: 11.0
-          emulator: false
+          cmdline-tools-version: 12.0
+          packages: platforms;android-34 build-tools;34.0.0 ndk;26.1.10909125
 
       - name: Install Gradle (for wrapper generation)
         uses: gradle/gradle-build-action@v3
