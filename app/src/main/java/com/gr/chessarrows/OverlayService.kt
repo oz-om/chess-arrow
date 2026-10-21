@@ -5,7 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
-
+import android.app.ServiceInfo
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -302,8 +302,8 @@ class OverlayService : Service() {
                     true
                 }
                 MotionEvent.ACTION_MOVE -> {
-                    val newX = (params.x + event.rawX - v.width / 2).coerceIn(0, screenWidth - v.width)
-                    val newY = (params.y + event.rawY - v.height / 2).coerceIn(0, screenHeight - v.height)
+                    val newX = (params.x + event.rawX - v.width / 2f).coerceIn(0f, (screenWidth - v.width).toFloat())
+                    val newY = (params.y + event.rawY - v.height / 2f).coerceIn(0f, (screenHeight - v.height).toFloat())
                     params.x = newX.toInt()
                     params.y = newY.toInt()
                     windowManager.updateViewLayout(v, params)
