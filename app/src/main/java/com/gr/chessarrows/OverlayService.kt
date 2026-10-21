@@ -5,7 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
-import android.app.ServiceInfo
+
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -155,7 +155,8 @@ class OverlayService : Service() {
             .build()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(1, notification, android.app.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+            // FOREGROUND_SERVICE_TYPE_SPECIAL_USE = 64 (0x40), available from API 34
+            startForeground(1, notification, 64)
         } else {
             startForeground(1, notification)
         }
