@@ -27,7 +27,6 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.TextView
 import android.animation.ValueAnimator
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -83,7 +82,8 @@ class OverlayService : Service() {
         val permission = "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         val handler = Handler(Looper.getMainLooper())
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(actionReceiver, filter, permission, handler, ContextCompat.RECEIVER_NOT_EXPORTED)
+            // RECEIVER_NOT_EXPORTED = 0x4000000 (1 << 26)
+            registerReceiver(actionReceiver, filter, permission, handler, 0x4000000)
         } else {
             registerReceiver(actionReceiver, filter, permission, handler)
         }
