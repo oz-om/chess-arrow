@@ -164,8 +164,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupModeToggle() {
-        modeToggle.singleSelection = true
-        modeToggle.selectionRequired = true
         modeToggle.addOnButtonCheckedListener { _, checkedId, isChecked ->
             if (isChecked) {
                 // Mode changed - could store mode preference here

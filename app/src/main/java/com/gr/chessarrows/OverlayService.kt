@@ -5,7 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
-import android.app.ServiceInfo
+
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -81,10 +81,11 @@ class OverlayService : Service() {
             addAction("com.example.chessarrowoverlay.ACTION_LOCALE_UPDATED")
         }
         val permission = "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        val handler = Handler(Looper.getMainLooper())
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(actionReceiver, filter, permission, Looper.getMainLooper(), ContextCompat.RECEIVER_NOT_EXPORTED)
+            registerReceiver(actionReceiver, filter, permission, handler, ContextCompat.RECEIVER_NOT_EXPORTED)
         } else {
-            registerReceiver(actionReceiver, filter, permission, Looper.getMainLooper())
+            registerReceiver(actionReceiver, filter, permission, handler)
         }
 
         // Create notification channel
@@ -154,7 +155,7 @@ class OverlayService : Service() {
             .build()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(1, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+            startForeground(1, notification, android.app.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
         } else {
             startForeground(1, notification)
         }
@@ -323,7 +324,7 @@ class OverlayService : Service() {
         val targetY = params.y.coerceIn(0, screenHeight - button.height)
 
         ValueAnimator.ofFloat(params.x.toFloat(), targetX.toFloat()).apply {
-            duration = 300
+            duration = 300L
             interpolator = DecelerateInterpolator()
             addUpdateListener { animation ->
                 params.x = (animation.animatedValue as Float).toInt()
@@ -332,7 +333,7 @@ class OverlayService : Service() {
             start()
         }
         ValueAnimator.ofFloat(params.y.toFloat(), targetY.toFloat()).apply {
-            duration = 300
+            duration = 300L
             interpolator = DecelerateInterpolator()
             addUpdateListener { animation ->
                 params.y = (animation.animatedValue as Float).toInt()
