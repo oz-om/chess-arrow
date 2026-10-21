@@ -15,6 +15,12 @@
     <string name="onboarding_page_4">Adjust color, width and opacity in the settings. Changes apply immediately.</string>
     <string name="onboarding_page_5">The overlay works over any chess app. No accessibility service needed.</string>
     <string name="onboarding_page_6">Tap the switch to enable the overlay. Grant permission when prompted.</string>
+    <string name="onboarding_title_1">Chess Board</string>
+    <string name="onboarding_title_2">Security</string>
+    <string name="onboarding_title_3">Protection</string>
+    <string name="onboarding_title_4">Notifications</string>
+    <string name="onboarding_title_5">Touch</string>
+    <string name="onboarding_title_6">Controls</string>
     <string name="next">Next</string>
     <string name="back">Back</string>
     <string name="get_started">Get Started</string>
@@ -26,4 +32,11 @@
     <string name="clear_arrows">Clear Arrows</string>
     <string name="notification_channel_name">Arrow Overlay Service</string>
     <string name="notification_channel_description">Manages the floating arrow overlay</string>
+    <string name="service_state_on">ON</string>
+    <string name="service_state_off">OFF</string>
+    <string name="width_dp">Width (dp)</string>
+    <string name="opacity_percent">Opacity (%)</string>
+    <string name="drawing_mode">Drawing Mode</string>
+    <string name="enable_arrow_overlay">Enable Arrow Overlay</string>
+    <string name="how_it_works_button">How it Works</string>
 </resources>

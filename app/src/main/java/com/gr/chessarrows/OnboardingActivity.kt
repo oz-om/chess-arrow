@@ -25,12 +25,12 @@ class OnboardingActivity : AppCompatActivity() {
     private lateinit var btnGetStarted: com.google.android.material.button.MaterialButton
 
     private val pages = listOf(
-        OnboardingPage("♟️", R.string.onboarding_page_1, R.color.overlay_green),
-        OnboardingPage("🔐", R.string.onboarding_page_2, R.color.overlay_green),
-        OnboardingPage("🛡️", R.string.onboarding_page_3, R.color.overlay_green),
-        OnboardingPage("🔔", R.string.onboarding_page_4, R.color.overlay_green),
-        OnboardingPage("👆", R.string.onboarding_page_5, R.color.overlay_green),
-        OnboardingPage("🎛️", R.string.onboarding_page_6, R.color.overlay_green)
+        OnboardingPage("♟️", R.string.onboarding_page_1, R.color.overlay_green, R.string.onboarding_title_1),
+        OnboardingPage("🔐", R.string.onboarding_page_2, R.color.overlay_green, R.string.onboarding_title_2),
+        OnboardingPage("🛡️", R.string.onboarding_page_3, R.color.overlay_green, R.string.onboarding_title_3),
+        OnboardingPage("🔔", R.string.onboarding_page_4, R.color.overlay_green, R.string.onboarding_title_4),
+        OnboardingPage("👆", R.string.onboarding_page_5, R.color.overlay_green, R.string.onboarding_title_5),
+        OnboardingPage("🎛️", R.string.onboarding_page_6, R.color.overlay_green, R.string.onboarding_title_6)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -118,7 +118,8 @@ class OnboardingActivity : AppCompatActivity() {
     private data class OnboardingPage(
         val emoji: String,
         val bodyRes: Int,
-        val colorRes: Int
+        val colorRes: Int,
+        val titleRes: Int
     )
 
     private inner class OnboardingPagerAdapter(
@@ -140,6 +141,7 @@ class OnboardingActivity : AppCompatActivity() {
             val page = pages[position]
             holder.title.text = page.emoji
             holder.body.text = getString(page.bodyRes)
+            holder.icon.contentDescription = getString(page.titleRes)
             val color = ContextCompat.getColor(this@OnboardingActivity, page.colorRes)
             holder.title.setTextColor(color)
         }

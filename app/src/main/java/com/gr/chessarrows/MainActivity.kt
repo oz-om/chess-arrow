@@ -218,7 +218,7 @@ class MainActivity : AppCompatActivity() {
         val isRunning = isServiceRunning()
         serviceSwitch.isChecked = isRunning
         statusText.text = if (isRunning) getString(R.string.service_running) else getString(R.string.service_stopped)
-        stateLabel.text = if (isRunning) "ON" else "OFF"
+        stateLabel.text = if (isRunning) getString(R.string.service_state_on) else getString(R.string.service_state_off)
         stateLabel.setBackgroundColor(if (isRunning) ContextCompat.getColor(this, R.color.overlay_green) else 0xFF9E9E9E.toInt())
     }
 

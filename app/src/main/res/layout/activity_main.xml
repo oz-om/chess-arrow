@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Width (dp)"
+                android:text="@string/width_dp"
                 android:textAppearance="?attr/textAppearanceTitleMedium" />
 
             <SeekBar
@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Opacity (%)"
+                android:text="@string/opacity_percent"
                 android:textAppearance="?attr/textAppearanceTitleMedium" />
 
             <SeekBar
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Drawing Mode"
+                android:text="@string/drawing_mode"
                 android:textAppearance="?attr/textAppearanceTitleMedium" />
 
             <com.google.android.material.button.MaterialButtonToggleGroup
@@ -129,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Enable Arrow Overlay" />
+                android:text="@string/enable_arrow_overlay" />
 
             <!-- Status -->
             <LinearLayout
@@ -148,7 +148,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Service Stopped"
+                    android:text="@string/service_stopped"
                     android:textAppearance="?attr/textAppearanceBodyLarge" />
 
                 <TextView
@@ -159,7 +159,7 @@
                     android:paddingHorizontal="16dp"
                     android:background="@color/overlay_green"
                     android:textColor="@color/white"
-                    android:text="OFF" />
+                    android:text="@string/service_state_off" />
             </LinearLayout>
 
             <!-- Help Button -->
@@ -168,7 +168,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="How it Works" />
+                android:text="@string/how_it_works_button" />
 
         </LinearLayout>
     </ScrollView>
